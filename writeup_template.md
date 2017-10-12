@@ -8,17 +8,9 @@ The goals / steps of this project are the following:
 * Reflect on your work in a written report
 
 
-[//]: # (Image References)
-
-[result1]: ./output_images/solidWhiteCurve.jpg "Result1"
-[result2]: ./output_images/solidWhiteRight.jpg "Result2"
-[result3]: ./output_images/solidYellowCurve.jpg "Result3"
-[result4]: ./output_images/solidYellowCurve2.jpg "Result4"
-[result5]: ./output_images/olidYellowLeft.jpg "Result5"
-[result6]: ./output_images/whiteCarLaneSwitch.jpg "Result6"
 ---
 
-
+### 1. Current pipeline using OpenCV
 
 My pipeline consisted of 6 steps. 
 
@@ -34,19 +26,19 @@ My pipeline consisted of 6 steps.
 
 6. Used `weighted_img` function to overlap line image with original. 
 
-<img src="examples/laneLines_thirdPass.jpg" width="480" alt="Combined Image" />
+## Image Results. 
 
-<img src="output_images/solidWhiteCurve.jpg"  width="480" alt="Combined Image" />
+<img src="output_images/solidWhiteCurve.jpg"  width="480" />
 
-<img src="output_images/solidWhiteRight.jpg"  width="480" alt="Combined Image" />
+<img src="output_images/solidWhiteRight.jpg"  width="480" />
 
-<img src="output_images/solidYellowCurve.jpg"  width="480" alt="Combined Image" />
+<img src="output_images/solidYellowCurve.jpg"  width="480" />
 
-<img src="output_images/solidYellowCurve2.jpg"  width="480" alt="Combined Image" />
+<img src="output_images/solidYellowCurve2.jpg"  width="480" />
 
-<img src="output_images/olidYellowLeft.jpg" width="480" alt="Combined Image" />
+<img src="output_images/olidYellowLeft.jpg" width="480" />
 
-<img src="output_images/whiteCarLaneSwitch.jpg"  width="480" alt="Combined Image" />
+<img src="output_images/whiteCarLaneSwitch.jpg"  width="480" />
 
 
 
@@ -56,31 +48,29 @@ My pipeline consisted of 6 steps.
 
 * To attain the output as shown, we need to draw a single line instead of mulitiple lines. This part was trick. 
 
-First, I tried to solve it by dividing left lane and right lane using slop direction.
+1. I tried to solve it by dividing left lane and right lane using slop direction.
 
 Then calculated `m` and `b` for all points using `np.polyfit`. Then using `y=mx+b` got x cordinates by fixing y cordinates. 
 
 But this process failed to draw lines correctly on videos. 
 
-Secon
+2. Divided all lines to left and right using slop. 
 
-In order to draw a single line on the left and right lanes, I modified the draw_lines() function by ...
+calculated avg slop and center for both left and right. 
 
-If you'd like to include images to show how the pipeline works, here is how to include an image: 
+Fixing Y cordinates calculated X cordinates using avg slop and center points. 
 
 
 
 
 ### 2. Identify potential shortcomings with your current pipeline
 
+* Manually adjusting vertices for area of interest. This is implemented basing on fact that camera is always placed at one place, which may fail for different cars. 
 
-One potential shortcoming would be what would happen when ... 
-
-Another shortcoming could be ...
-
+* Using slop conditions to plot lines fails with curve lines. 
 
 ### 3. Suggest possible improvements to your pipeline
 
-A possible improvement would be to ...
+* Inspite plotting one line for right and left, we can plot multiple lines depending on change in slop, this can potentially help with curve lines. 
 
-Another potential improvement could be to ...
+* A dynamic approch to get area of interest inspite of manual trying out different vertices. 
