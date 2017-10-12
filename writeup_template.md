@@ -34,12 +34,23 @@ My pipeline consisted of 6 steps.
 
 6. Used `weighted_img` function to overlap line image with original. 
 
-![alt text][result1]
-![alt text][result2]
-![alt text][result3]
-![alt text][result4]
-![alt text][result5]
-![alt text][result6]
+<img src="examples/laneLines_thirdPass.jpg" width="480" alt="Combined Image" />
+
+<img src="output_images/solidWhiteCurve.jpg"  width="480" alt="Combined Image" />
+
+<img src="output_images/solidWhiteRight.jpg"  width="480" alt="Combined Image" />
+
+<img src="output_images/solidYellowCurve.jpg"  width="480" alt="Combined Image" />
+
+<img src="output_images/solidYellowCurve2.jpg"  width="480" alt="Combined Image" />
+
+<img src="output_images/olidYellowLeft.jpg" width="480" alt="Combined Image" />
+
+<img src="output_images/whiteCarLaneSwitch.jpg"  width="480" alt="Combined Image" />
+
+
+
+
 
 ## Changes in draw_line() function.
 
